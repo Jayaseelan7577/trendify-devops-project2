@@ -109,7 +109,7 @@ Docker Hub:
 
 ## Deployment Status
 
-The CI/CD infrastructure, Docker image, Kubernetes manifests, Jenkins pipeline, and EKS environment have been configured. Final application deployment and LoadBalancer verification are dependent on AWS EC2 capacity availability.
+The CI/CD infrastructure, Docker image, Kubernetes manifests, Jenkins pipeline, EKS environment, LoadBalancer, and monitoring stack have been successfully deployed and verified.
 
 ## Author
 
