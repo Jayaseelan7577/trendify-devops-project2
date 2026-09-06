@@ -1,91 +1,116 @@
-DevOps Practice Project – Dist Directory
+# Trendify – Production Application Deployment
 
-This repository contains the production-ready build files (dist folder) for DevOps practice and deployment exercises.
+## Project Overview
 
-It is intentionally structured to help learners focus on CI/CD pipelines, hosting, containerization, and infrastructure setup rather than application development.
+This project demonstrates the deployment of the Trendify React application into a production-ready DevOps environment using Docker, Docker Hub, Terraform, Jenkins, Kubernetes, and Amazon EKS.
 
-📁 What This Repository Contains
+## Technology Stack
 
-dist/ – Compiled and production-ready static files
+- React / Vite
+- Docker
+- Nginx
+- Docker Hub
+- Git & GitHub
+- Terraform
+- AWS EC2
+- Amazon EKS
+- Kubernetes
+- Jenkins
+- Helm
+- Prometheus
+- Grafana
 
-HTML
+## Architecture
 
-CSS
+Developer
+|
+v
+GitHub Repository
+|
+v
+GitHub Webhook
+|
+v
+Jenkins CI/CD
+|
++---- Docker Build
+|
++---- Push Image to Docker Hub
+|
++---- Deploy to Amazon EKS
+|
+v
+Kubernetes Deployment
+|
+v
+Trendify Pods
+|
+v
+LoadBalancer Service
+|
+v
+Users
 
-JavaScript
+## Docker
 
-Assets (images, fonts, etc.)
+The application is packaged as a Docker image using Nginx and the production-ready files from the `dist/` directory.
 
-These files are ready to deploy to:
+Docker image:
 
-Web servers (Nginx / Apache)
+`jayaseelan7577/trendify-app:latest`
 
-Cloud platforms (AWS S3, Azure Blob, GCP Storage)
+## Kubernetes
 
-Containerized environments (Docker + Nginx)
+The application is deployed to Amazon EKS using:
 
-Kubernetes clusters
+- Deployment: `trendify-deployment`
+- Service: `trendify-service`
+- Service type: `LoadBalancer`
+- Application container port: 80
+- Service port: 3000
+- Replicas: 2
 
-CI/CD pipeline demonstrations
+## CI/CD Pipeline
 
-🎯 Purpose of This Repository
+Jenkins performs the following stages:
 
-This repository is designed for:
+1. Checkout source code
+2. Build Docker image
+3. Push Docker image to Docker Hub
+4. Deploy application to Amazon EKS
 
-DevOps beginners
+## Infrastructure
 
-CI/CD practice
+Terraform is used to provision the AWS infrastructure required for the DevOps environment, including networking, IAM, security groups, and the Jenkins EC2 instance.
 
-Deployment pipeline testing
+## GitHub Webhook
 
-Docker & Kubernetes deployment exercises
+A GitHub webhook is configured to trigger the Jenkins pipeline when changes are pushed to the repository.
 
-Web server configuration practice
+Webhook endpoint:
 
-Reverse proxy and load balancer setup
+`http://13.126.49.169:8080/github-webhook/`
 
-The goal is to simulate real-world deployment scenarios using already built application files.
+## Monitoring
 
-❓ Why is there NO package.json?
+Prometheus and Grafana are planned for Kubernetes cluster and application monitoring.
 
-You may notice that this repository does not include:
+## Repository
 
-package.json
+GitHub:
 
-node_modules
+`https://github.com/Jayaseelan7577/trendify-devops-project2`
 
-Source code (src/)
+## Docker Hub
 
-Build tools configuration
+Docker Hub:
 
-✅ Reason:
+`https://hub.docker.com/r/jayaseelan7577/trendify-app`
 
-This repository only contains the final production build output (dist), not the development source code.
+## Deployment Status
 
-In a typical project:
+The CI/CD infrastructure, Docker image, Kubernetes manifests, Jenkins pipeline, and EKS environment have been configured. Final application deployment and LoadBalancer verification are dependent on AWS EC2 capacity availability.
 
-Developers write source code.
+## Author
 
-The project is built using tools like:
-
-Node.js
-
-Webpack
-
-Vite
-
-React (or other frameworks)
-
-A dist/ folder is generated.
-
-Only the production build is deployed to servers.
-
-This repository represents step 4 only.
-
-Since this is already the compiled output:
-
-No dependencies are required
-
-No build process is required
-
-No package.json is needed
+Jayaseelan M
