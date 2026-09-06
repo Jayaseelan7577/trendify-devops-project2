@@ -93,7 +93,7 @@ Webhook endpoint:
 
 ## Monitoring
 
-Prometheus and Grafana are planned for Kubernetes cluster and application monitoring.
+Prometheus and Grafana are installed and verified for Kubernetes cluster and application monitoring.
 
 ## Repository
 
